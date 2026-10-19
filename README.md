@@ -5,10 +5,7 @@ enrolment, and lesson progress tracking. Data lives in three JSONBin bins.
 
 ## Screen recording
 
-<video controls playsinline preload="metadata" width="360">
-  <source src="assets/videos/screenrecord/LearnSphere%20Screen%20Recoding.mp4" type="video/mp4">
-  <a href="assets/videos/screenrecord/LearnSphere%20Screen%20Recoding.mp4">Watch the LearnSphere screen recording</a>
-</video>
+[Watch the LearnSphere screen recording](<assets/videos/screenrecord/LearnSphere Screen Recoding.mp4>)
 
 ## Screenshots
 
