@@ -5,7 +5,7 @@ enrolment, and lesson progress tracking. Data lives in three JSONBin bins.
 
 ## Screen recording
 
-[Watch the LearnSphere screen recording](<assets/videos/screenrecord/LearnSphere Screen Recoding.mp4>)
+<a href="https://drive.google.com/file/d/1psu9Ue_Ys7bhKXG91ChnbACcCucpdrTe/view?usp=sharing" target="_blank" rel="noopener noreferrer">Watch the LearnSphere screen recording</a>
 
 ## Screenshots
 
