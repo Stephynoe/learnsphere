@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;min-height:100vh;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary": "#9b451e", "on-secondary-container": "#784312", "on-tertiary-container": "#5c1d00", "on-tertiary": "#ffffff", "outline-variant": "#e0c0b1", "on-secondary": "#ffffff", "surface-container": "#e7eeff", "on-secondary-fixed": "#2f1500", "on-background": "#111c2d", "surface-container-highest": "#d8e3fb", "primary": "#9d4300", "surface-bright": "#f9f9ff", "on-surface": "#111c2d", "tertiary-container": "#e67e53", "surface-tint": "#9d4300", "secondary": "#89511f", "on-tertiary-fixed": "#370e00", "primary-fixed-dim": "#ffb690", "on-surface-variant": "#584237", "surface": "#f9f9ff", "error-container": "#ffdad6", "on-primary-container": "#582200", "surface-container-lowest": "#ffffff", "on-error-container": "#93000a", "surface-dim": "#cfdaf2", "tertiary-fixed-dim": "#ffb598", "surface-container-high": "#dee8ff", "primary-fixed": "#ffdbca", "inverse-surface": "#263143", "secondary-container": "#feb379", "on-secondary-fixed-variant": "#6c3a08", "background": "#f9f9ff", "outline": "#8c7164", "on-error": "#ffffff", "tertiary-fixed": "#ffdbce", "secondary-fixed-dim": "#ffb77f", "surface-container-low": "#f0f3ff", "primary-container": "#f97316", "on-primary": "#ffffff", "inverse-primary": "#ffb690", "on-tertiary-fixed-variant": "#7c2e07", "inverse-on-surface": "#ecf1ff", "error": "#ba1a1a", "on-primary-fixed-variant": "#783200", "secondary-fixed": "#ffdcc4", "on-primary-fixed": "#341100", "surface-variant": "#d8e3fb" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "1rem", "gutter": "1rem", "space-md": "1rem", "space-xl": "2rem" }, "fontFamily": { "body-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"] }, "fontSize": { "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "600" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><button aria-label="Go Back" class="w-11 h-11 -ml-space-xs rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><div class="flex items-center gap-space-xs"><div class="w-7 h-7 rounded-lg bg-primary-container flex items-center justify-center shadow-[0_2px_8px_rgba(249,115,22,0.28)]"><span class="material-symbols-outlined text-on-primary text-[18px]">school</span></div><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface hidden sm:inline-block">Excelerate</span><span class="font-headline-sm text-headline-sm text-on-surface sm:hidden">Sign In</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex-1 flex flex-col relative w-full px-margin pt-14 pb-safe bg-surface"><div class="flex flex-col w-full pb-8">
+<!-- Subtle Top Banner Info & Help trigger -->
+<div class="flex items-center justify-between py-2 px-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Learner Account</span>
+</div>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-lg" onclick="document.getElementById('role-sheet').classList.toggle('hidden')" type="button">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+<span class="font-label-md text-label-md">Need Admin?</span>
+</button>
+</div>
+<!-- Role clarification contextual callout (dismissible/toggleable) -->
+<div class="hidden my-2 p-3 bg-surface-container rounded-xl text-on-surface flex items-start gap-3" id="role-sheet">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">info</span>
+<div class="flex-1 text-left">
+<p class="font-label-md text-label-md">Looking for Instructor or Enterprise Portal?</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Corporate LMS administrators and mentors are provisioned directly by your organization's manager.</p>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1" onclick="document.getElementById('role-sheet').classList.add('hidden')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Hero / Motivational Badge & Headers -->
+<div class="mt-2 mb-6 flex flex-col items-center text-center">
+<div class="relative mb-3">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center shadow-lg shadow-primary/20 text-on-primary">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest p-1 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Start Learning Journey</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1.5 max-w-[280px]">
+      Join over 25,000+ professionals accelerating high-impact tech &amp; design careers.
+    </p>
+<!-- Social Proof Micro-Strip -->
+<div class="flex items-center gap-2 mt-3 px-3 py-1.5 rounded-full bg-surface-container-low shadow-sm">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Portrait avatar of an energetic young female tech student smiling with modern warm office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbmM0nK7LGzotbgDM5jfKbrNzs0SLm8aOOT2dWNoPgSo27c9_-6sR8BETXrhp_a4Eok4WYRsKHzZYPGyELeS0NR__aF6WMppxgwjlJ7jIVWzkEisfwsdAXKmkBijm3gww6XFCa_bChh2AvG2mDDMxwa0ZyUS8mrE4j0RHVQakfPoEZDjNfI0qstvYie5m2U4Jt-bxexJeU7FORLHEBQKL57njZsamthA_2Xxk-oU758hcWjkpDHj2HVg"/>
+</div>
+<div class="w-6 h-6 rounded-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close up avatar of a professional designer with dark skin wearing glasses against warm backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5NP4TfolK_dHBMBEiA7rNdCaDtMfADkqcPitTS-MuVzITMnXVMQ6ktUgpqxfIdHhprAEzHMLQ-9p0dutsx_OehNZvbC8olkcIr-ukGZ-6Uq95vcgwnaEgl96uCXIwhchBxby3RYj9tLAzYjk1fkBc3uY9dKfHWKOAXbKvpR9H2hl0NmHu9CC4sOTfSyopLB3ocmyV_ll2pVHGb4JOQnYmnNvLK3R8POrRCSYGyGgtGRw4Az9e78AwSw"/>
+</div>
+<div class="w-6 h-6 rounded-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Avatar of an Asian male software engineer with headphones in creative studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5kVUBL_7WHH_wfYvCdjhCNgids_z-TnydYlylPnh2Boq92bjG7JwWbnFWmhodTzYeDROw_loh1-pEc6_JwuBbUZ0t4E96E9SWCbvB8SMEMdqw5B8IIJWg0MPqAIm68Rj2SyqmQGD8YAXX7mQo4k6U_DRE6LD_YrjIgDH5TkK1Y2FTIdEkalJ-OfUpfSMO7_agEqRBzCoXbGZ3-2dq-KAJdIjIuxgtkljfgAaJltkRsUe1Ux_rMHzOqQ"/>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Cohort 2024 enrolling now</span>
+</div>
+</div>
+<!-- Registration Form Card -->
+<form class="flex flex-col gap-4" id="learnerRegistrationForm" onsubmit="event.preventDefault(); handleRegistrationSubmit();">
+<!-- Full Name Input -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface flex items-center justify-between" for="fullName">
+<span>Full Legal Name</span>
+<span class="text-on-surface-variant font-normal text-label-sm">For certificates</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px] pointer-events-none">person</span>
+<input class="w-full h-[52px] pl-11 pr-4 bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all font-body-md text-body-md" id="fullName" placeholder="e.g. Alex Morgan" required="" type="text"/>
+</div>
+</div>
+<!-- Email Address Input -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface" for="email">Email Address</label>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Work or Personal</span>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px] pointer-events-none">alternate_email</span>
+<input class="w-full h-[52px] pl-11 pr-4 bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all font-body-md text-body-md" id="email" placeholder="alex.morgan@company.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input & Dynamic Strength -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface" for="password">Password</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="strengthLabel">Security Level: Low</span>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px] pointer-events-none">lock</span>
+<input class="w-full h-[52px] pl-11 pr-12 bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all font-body-md text-body-md" id="password" oninput="checkPasswordStrength(this.value)" placeholder="At least 8 characters" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute right-2 w-9 h-9 flex items-center justify-center text-on-surface-variant hover:text-on-surface rounded-full transition-colors" onclick="togglePasswordVisibility('password', 'pwIcon')" type="button">
+<span class="material-symbols-outlined text-[20px]" id="pwIcon">visibility_off</span>
+</button>
+</div>
+<!-- Password Strength Meter Visual Bar -->
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden mt-1 flex gap-1">
+<div class="h-full flex-1 bg-surface-variant rounded-full transition-all duration-300" id="bar1"></div>
+<div class="h-full flex-1 bg-surface-variant rounded-full transition-all duration-300" id="bar2"></div>
+<div class="h-full flex-1 bg-surface-variant rounded-full transition-all duration-300" id="bar3"></div>
+</div>
+<!-- Password Micro Requirements Badges -->
+<div class="flex flex-wrap gap-2 mt-1.5">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm transition-colors" id="rule-len">
+<span class="material-symbols-outlined text-[13px]">radio_button_unchecked</span>
+<span>8+ chars</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm transition-colors" id="rule-num">
+<span class="material-symbols-outlined text-[13px]">radio_button_unchecked</span>
+<span>1 number</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm transition-colors" id="rule-sym">
+<span class="material-symbols-outlined text-[13px]">radio_button_unchecked</span>
+<span>1 symbol</span>
+</div>
+</div>
+</div>
+<!-- Confirm Password Input -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface" for="confirmPassword">Confirm Password</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden" id="matchFeedback">Matches</span>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px] pointer-events-none">shield</span>
+<input class="w-full h-[52px] pl-11 pr-12 bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all font-body-md text-body-md" id="confirmPassword" oninput="checkPasswordMatch()" placeholder="Repeat your password" required="" type="password"/>
+<div class="absolute right-3.5 text-on-surface-variant flex items-center justify-center pointer-events-none" id="confirmStatusIcon">
+<span class="material-symbols-outlined text-[20px]">lock_reset</span>
+</div>
+</div>
+</div>
+<!-- Consents & Preferences -->
+<div class="flex flex-col gap-3 mt-1 pt-1">
+<!-- Terms of Service Checkbox -->
+<label class="flex items-start gap-3 cursor-pointer group select-none">
+<div class="relative flex items-center justify-center w-6 h-6 mt-0.5">
+<input class="peer appearance-none w-5 h-5 rounded-md bg-surface-container-lowest checked:bg-primary-container transition-all cursor-pointer shadow-sm" id="termsCheckbox" required="" type="checkbox"/>
+<span class="material-symbols-outlined text-on-primary text-[16px] absolute pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity font-bold">check</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-snug flex-1">
+          I agree to Excelerate's 
+          <a class="text-primary font-semibold hover:underline" href="#" onclick="event.preventDefault(); showNotice('Terms of Service: Access rules, certifications verification, and student conduct guidelines apply.');">Terms of Service</a> 
+          and 
+          <a class="text-primary font-semibold hover:underline" href="#" onclick="event.preventDefault(); showNotice('Privacy Policy: We encrypt educational records, grade transcripts, and cohort telemetry.');">Privacy Policy</a>.
+        </span>
+</label>
+<!-- Marketing / Cohort Alert Toggle Option -->
+<label class="flex items-start gap-3 cursor-pointer group select-none">
+<div class="relative flex items-center justify-center w-6 h-6 mt-0.5">
+<input checked="" class="peer appearance-none w-5 h-5 rounded-md bg-surface-container-lowest checked:bg-primary-container transition-all cursor-pointer shadow-sm" id="alertsCheckbox" type="checkbox"/>
+<span class="material-symbols-outlined text-on-primary text-[16px] absolute pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity font-bold">check</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-snug flex-1">
+          Send me personalized course recommendations, live workshop invitations, and cohort sprint alerts.
+        </span>
+</label>
+</div>
+<!-- Primary Action CTA -->
+<button class="w-full h-[52px] mt-2 rounded-2xl bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-lg shadow-primary-container/25 active:scale-[0.98] hover:bg-primary transition-all duration-150" id="submitBtn" type="submit">
+<span>Create Learner Account</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</form>
+<!-- Divider: Or Sign Up With -->
+<div class="relative my-6 flex items-center justify-center">
+<div class="w-full h-px bg-surface-container-highest"></div>
+<span class="absolute px-3 bg-surface font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">
+      or sign up with
+    </span>
+</div>
+<!-- Social & SSO Sign-Up Row -->
+<div class="grid grid-cols-3 gap-3">
+<!-- Google Button -->
+<button aria-label="Sign up with Google" class="h-12 rounded-xl bg-surface-container-lowest text-on-surface flex items-center justify-center gap-2 shadow-sm hover:bg-surface-container-low active:scale-95 transition-all" onclick="simulateSocialAuth('Google')" type="button">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+<span class="font-label-md text-label-md hidden sm:inline">Google</span>
+</button>
+<!-- Apple Button -->
+<button aria-label="Sign up with Apple" class="h-12 rounded-xl bg-surface-container-lowest text-on-surface flex items-center justify-center gap-2 shadow-sm hover:bg-surface-container-low active:scale-95 transition-all" onclick="simulateSocialAuth('Apple')" type="button">
+<svg class="w-5 h-5 fill-current text-on-surface" viewbox="0 0 24 24">
+<path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.89c.65-.8 1.09-1.92.97-3.04-.94.04-2.07.63-2.73 1.4-.58.68-1.09 1.77-.95 2.86 1.05.08 2.06-.42 2.71-1.22z"></path>
+</svg>
+<span class="font-label-md text-label-md hidden sm:inline">Apple</span>
+</button>
+<!-- SSO Button -->
+<button aria-label="Sign up with Enterprise SSO" class="h-12 rounded-xl bg-surface-container-lowest text-on-surface flex items-center justify-center gap-2 shadow-sm hover:bg-surface-container-low active:scale-95 transition-all" onclick="simulateSocialAuth('Enterprise SSO')" type="button">
+<span class="material-symbols-outlined text-[20px] text-primary">domain</span>
+<span class="font-label-md text-label-md">SSO</span>
+</button>
+</div>
+<!-- Sign In Navigation Link -->
+<div class="mt-6 flex flex-col items-center gap-3">
+<p class="font-body-md text-body-md text-on-surface-variant text-center">
+      Already have an account? 
+      <button class="text-primary font-bold hover:underline ml-1" onclick="history.back()" type="button">
+        Sign In
+      </button>
+</p>
+<!-- Security & Trust Footer Badge -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-label-sm text-label-sm">Protected by Enterprise 256-bit SSL &amp; GDPR Compliant</span>
+</div>
+</div>
+<!-- Micro Modal Toast for UX Delight -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 max-w-[90vw] bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-xl shadow-xl flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300 z-50" id="toastNotification">
+<span class="material-symbols-outlined text-[20px] text-secondary-container" id="toastIcon">info</span>
+<span class="font-body-sm text-body-sm" id="toastMsg">Notification text</span>
+</div>
+</div>
+<script>
+  function togglePasswordVisibility(fieldId, iconId) {
+    const input = document.getElementById(fieldId);
+    const icon = document.getElementById(iconId);
+    if (!input || !icon) return;
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.textContent = 'visibility';
+    } else {
+      input.type = 'password';
+      icon.textContent = 'visibility_off';
+    }
+  }
+
+  function checkPasswordStrength(val) {
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+    const label = document.getElementById('strengthLabel');
+
+    const ruleLen = document.getElementById('rule-len');
+    const ruleNum = document.getElementById('rule-num');
+    const ruleSym = document.getElementById('rule-sym');
+
+    const hasLen = val.length >= 8;
+    const hasNum = /\d/.test(val);
+    const hasSym = /[^A-Za-z0-9]/.test(val);
+
+    // Update rule badge states
+    updateBadge(ruleLen, hasLen);
+    updateBadge(ruleNum, hasNum);
+    updateBadge(ruleSym, hasSym);
+
+    let score = 0;
+    if (hasLen) score++;
+    if (hasNum) score++;
+    if (hasSym) score++;
+
+    // Reset colors
+    bar1.className = 'h-full flex-1 bg-surface-variant rounded-full transition-all duration-300';
+    bar2.className = 'h-full flex-1 bg-surface-variant rounded-full transition-all duration-300';
+    bar3.className = 'h-full flex-1 bg-surface-variant rounded-full transition-all duration-300';
+
+    if (val.length === 0) {
+      label.textContent = 'Security Level: Low';
+      label.className = 'font-label-sm text-label-sm text-on-surface-variant';
+      return;
+    }
+
+    if (score === 1) {
+      bar1.className = 'h-full flex-1 bg-error rounded-full transition-all duration-300';
+      label.textContent = 'Weak';
+      label.className = 'font-label-sm text-label-sm text-error font-bold';
+    } else if (score === 2) {
+      bar1.className = 'h-full flex-1 bg-primary-container rounded-full transition-all duration-300';
+      bar2.className = 'h-full flex-1 bg-primary-container rounded-full transition-all duration-300';
+      label.textContent = 'Good';
+      label.className = 'font-label-sm text-label-sm text-primary font-bold';
+    } else if (score === 3) {
+      bar1.className = 'h-full flex-1 bg-secondary-container rounded-full transition-all duration-300';
+      bar2.className = 'h-full flex-1 bg-secondary-container rounded-full transition-all duration-300';
+      bar3.className = 'h-full flex-1 bg-secondary-container rounded-full transition-all duration-300';
+      label.textContent = 'Strong';
+      label.className = 'font-label-sm text-label-sm text-on-secondary-container font-bold';
+    }
+
+    checkPasswordMatch();
+  }
+
+  function updateBadge(el, isPassed) {
+    const icon = el.querySelector('.material-symbols-outlined');
+    if (isPassed) {
+      el.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+      el.classList.add('bg-primary-fixed', 'text-on-primary-fixed');
+      icon.textContent = 'check_circle';
+      icon.style.fontVariationSettings = "'FILL' 1";
+    } else {
+      el.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+      el.classList.remove('bg-primary-fixed', 'text-on-primary-fixed');
+      icon.textContent = 'radio_button_unchecked';
+      icon.style.fontVariationSettings = "'FILL' 0";
+    }
+  }
+
+  function checkPasswordMatch() {
+    const p1 = document.getElementById('password').value;
+    const p2 = document.getElementById('confirmPassword').value;
+    const feedback = document.getElementById('matchFeedback');
+    const statusIcon = document.getElementById('confirmStatusIcon');
+
+    if (!p2) {
+      feedback.classList.add('hidden');
+      statusIcon.innerHTML = '<span class="material-symbols-outlined text-[20px]">lock_reset</span>';
+      statusIcon.className = 'absolute right-3.5 text-on-surface-variant flex items-center justify-center pointer-events-none';
+      return;
+    }
+
+    feedback.classList.remove('hidden');
+    if (p1 === p2 && p1.length > 0) {
+      feedback.textContent = 'Passwords match';
+      feedback.className = 'font-label-sm text-label-sm text-secondary font-bold';
+      statusIcon.innerHTML = '<span class="material-symbols-outlined text-[20px] text-secondary" style="font-variation-settings: \'FILL\' 1;">check_circle</span>';
+    } else {
+      feedback.textContent = 'Passwords do not match';
+      feedback.className = 'font-label-sm text-label-sm text-error font-medium';
+      statusIcon.innerHTML = '<span class="material-symbols-outlined text-[20px] text-error">error</span>';
+    }
+  }
+
+  function showNotice(msg, iconName = 'info') {
+    const toast = document.getElementById('toastNotification');
+    const toastMsg = document.getElementById('toastMsg');
+    const toastIcon = document.getElementById('toastIcon');
+    if (!toast) return;
+
+    toastMsg.textContent = msg;
+    toastIcon.textContent = iconName;
+    toast.classList.remove('opacity-0', 'pointer-events-none');
+    toast.classList.add('opacity-100');
+
+    setTimeout(() => {
+      toast.classList.add('opacity-0', 'pointer-events-none');
+      toast.classList.remove('opacity-100');
+    }, 3400);
+  }
+
+  function simulateSocialAuth(provider) {
+    showNotice(`Connecting securely to ${provider} authentication...`, 'sync');
+    setTimeout(() => {
+      showNotice(`${provider} account authenticated! Welcome aboard.`, 'task_alt');
+    }, 1200);
+  }
+
+  function handleRegistrationSubmit() {
+    const pw = document.getElementById('password').value;
+    const confirmPw = document.getElementById('confirmPassword').value;
+
+    if (pw !== confirmPw) {
+      showNotice('Please ensure passwords match before continuing.', 'error');
+      document.getElementById('confirmPassword').focus();
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.innerHTML = `
+      <span class="inline-block animate-spin material-symbols-outlined text-[20px]">progress_activity</span>
+      <span>Setting up your academy...</span>
+    `;
+
+    setTimeout(() => {
+      showNotice('Account created successfully! Redirecting to onboard...', 'celebration');
+      setTimeout(() => {
+        btn.innerHTML = `
+          <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          <span>Welcome, Alex!</span>
+        `;
+      }, 1000);
+    }, 1400);
+  }
+</script></main>
+</body></html>

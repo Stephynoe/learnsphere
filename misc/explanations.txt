@@ -1,0 +1,6 @@
+Profile mode runs your app close to its deployed speed, while keeping tools available to measure performance.
+Think of the three modes like this:
+- Debug: For building and fixing the app. Includes hot reload, but can run slower.
+- Profile: For checking how smoothly the app runs.
+- Release: The optimized version you deploy for users.
+Profile mode helped us check whether your flickering also happens outside debug mode.
