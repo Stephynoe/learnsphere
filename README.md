@@ -169,3 +169,9 @@ still need final policy content. Views without an enrolment repository show an
 unavailable state rather than claiming there are no enrolments.
 
 Plus Jakarta Sans is bundled; its license is in `assets/fonts/OFL.txt`.
+
+   ## What changed in Week 3
+   - Home, Explore and Course Details now load data from a JSON store (JSONBin).
+   - Forms with validation: Sign In, Registration, Password Recovery, Admin Course.
+   - Loading spinners, error messages with Retry, and empty states.
+   - Full details: see CHANGELOG_WEEK3.md
