@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import '../quiz/quiz.dart';
+
 import '../admin/admin_courses_repository.dart';
 import '../auth/sign_in_repository.dart';
 import '../data/jsonbin_store.dart';
@@ -53,6 +55,8 @@ abstract interface class EnrollmentRepository {
     String enrollmentId,
     String lessonId, {
     bool complete = false,
+    List<int>? quizAnswers,
+    String? quizVersion,
   });
 }
 
@@ -305,6 +309,8 @@ class JsonBinEnrollmentRepository implements EnrollmentRepository {
     String enrollmentId,
     String lessonId, {
     bool complete = false,
+    List<int>? quizAnswers,
+    String? quizVersion,
   }) => _mutate(actor, (entries, catalog, _) {
     final e = entries.where((e) => e.id == enrollmentId).firstOrNull;
     if (e == null) throw const JsonBinException('Enrollment no longer exists.');
@@ -318,9 +324,33 @@ class JsonBinEnrollmentRepository implements EnrollmentRepository {
         'This lesson is unavailable. Refresh the course.',
       );
     }
+    final lesson = course.lessons.firstWhere((l) => l['id'] == lessonId);
+    final quiz = Quiz.fromLesson(lesson);
+    Map<String, dynamic>? attempt;
+    if (quizAnswers != null) {
+      if (quiz == null) {
+        throw const JsonBinException('This lesson has no graded quiz.');
+      }
+      if (quizVersion != null && quizVersion != quiz.version) {
+        throw const JsonBinException(
+          'This quiz has changed. Refresh the lesson before submitting.',
+        );
+      }
+      attempt = {
+        ...quiz.grade(quizAnswers),
+        'lesson_id': lessonId,
+        'submitted_at': _now,
+      };
+    }
+    if (complete && quiz != null && attempt?['passed'] != true) {
+      throw const JsonBinException('Pass the quiz to complete this lesson.');
+    }
+    if (attempt != null) {
+      e.data['quiz_attempts'] = [...?e.data['quiz_attempts'] as List?, attempt];
+    }
     final wasComplete = e.progress(course) == 1;
     final completed = e.completed;
-    if (complete) completed.add(lessonId);
+    if (complete || attempt?['passed'] == true) completed.add(lessonId);
     e.data.addAll({
       'completed_lesson_ids': completed.toList(),
       'last_opened_lesson_id': lessonId,

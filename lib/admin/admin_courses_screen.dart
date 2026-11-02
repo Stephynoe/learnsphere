@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../quiz/quiz.dart';
+import '../quiz/quiz_editor.dart';
+
 import '../enrollment/enrollment_repository.dart';
 
 import '../auth/sign_in_repository.dart';
@@ -892,6 +895,8 @@ class LessonEditorScreen extends StatefulWidget {
 }
 
 class _LessonEditorScreenState extends State<LessonEditorScreen> {
+  late Map<String, dynamic>? quiz =
+      widget.lesson?['quiz'] as Map<String, dynamic>?;
   late final title = TextEditingController(
     text: widget.lesson?['title'] as String? ?? '',
   );
@@ -1003,9 +1008,27 @@ class _LessonEditorScreenState extends State<LessonEditorScreen> {
                   : null,
             ),
           ]),
+          if (format == 'Assessment')
+            QuizEditor(
+              initial: quiz,
+              onChanged: (v) {
+                quiz = v;
+                dirty = true;
+              },
+            ),
           FilledButton.icon(
             onPressed: () async {
               if (form.currentState!.validate()) {
+                try {
+                  Quiz.fromLesson({'format': format, 'quiz': quiz});
+                } catch (e) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Add valid quiz questions before saving.'),
+                    ),
+                  );
+                  return;
+                }
                 setState(() => dirty = false);
                 await WidgetsBinding.instance.endOfFrame;
                 if (!context.mounted) return;
@@ -1018,6 +1041,7 @@ class _LessonEditorScreenState extends State<LessonEditorScreen> {
                   'format': format,
                   'minutes': int.parse(minutes.text),
                   'content': content.text.trim(),
+                  'quiz': format == 'Assessment' ? quiz : null,
                 });
               }
             },

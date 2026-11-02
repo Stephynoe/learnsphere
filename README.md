@@ -5,7 +5,13 @@ enrolment, and lesson progress tracking. Data lives in three JSONBin bins.
 
 ## Screen recording
 
-<a href="https://drive.google.com/file/d/1psu9Ue_Ys7bhKXG91ChnbACcCucpdrTe/view?usp=sharing" target="_blank" rel="noopener noreferrer">Watch the LearnSphere screen recording</a>
+<a href="https://drive.google.com/file/d/1jPNscbgm97KwLlgt-1rriwJw_C4rHaje/view?usp=sharing" target="_blank" rel="noopener noreferrer">Watch the LearnSphere screen recording</a>
+
+## App download
+
+Latest version: **v.1.1.0**.
+
+<a href="https://drive.google.com/file/d/1Vd0NrC4sKxXkp6nm3OOunQfLez1Pwrb7/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download the LearnSphere Android app</a>
 
 ## Screenshots
 
@@ -93,7 +99,20 @@ enrolments require explicit bin IDs. Use distinct bins for the three domains.
 - Profiles include illustrated avatars, interests, professional links, and saved
   privacy and reminder preferences.
 
-Lessons support text, lab instructions, self-assessments, and hosted HTTPS video
+Assessment lessons can also contain automatically graded multiple-choice quizzes.
+In the lesson editor, enable **Automatically graded quiz**, set a pass mark
+(1–100%, default 70%), and add questions with four distinct answers, a correct
+answer and an explanation. Learners must answer every question before submitting;
+passing completes the lesson. Attempts, scores and answer feedback are saved on
+the enrollment, with unlimited retries. Administrators can expand **Quiz results**
+on enrollments to inspect scores and missed questions. Existing instruction-only
+assessments keep their manual completion behavior. Quiz definitions and grading
+remain client-side in this prototype; they are not suitable for secure exams.
+
+Course discovery shows result counts and removable active filters. **Clear all**
+resets search, category and difficulty for the current Home or Explore tab.
+
+Lessons support text, lab instructions, assessments, and hosted HTTPS video
 links. Videos open externally. Existing enrolments retain access if their course
 becomes draft or archived. Completion uses current lesson IDs; adding or removing
 lessons can change progress. Opening a lesson saves the resume position; only
@@ -163,15 +182,28 @@ the race. A timed-out save may still reach the server; refresh before retrying.
 Social sign-in, SSO, biometrics, notifications, exports, study-time tracking,
 streaks, saved courses, public profiles, and reminder delivery are unfinished.
 Privacy/reminder preferences are stored only. Labs are instructions rather than
-executable environments; assessments have no automatic grading. Photo/file
+executable environments. Photo/file
 uploads and embedded video playback are unsupported. Terms and privacy dialogs
 still need final policy content. Views without an enrolment repository show an
 unavailable state rather than claiming there are no enrolments.
 
 Plus Jakarta Sans is bundled; its license is in `assets/fonts/OFL.txt`.
 
-   ## What changed in Week 3
-   - Home, Explore and Course Details now load data from a JSON store (JSONBin).
-   - Forms with validation: Sign In, Registration, Password Recovery, Admin Course.
-   - Loading spinners, error messages with Retry, and empty states.
-   - Full details: see CHANGELOG_WEEK3.md
+## What changed in Week 4
+
+- Administrators can create graded multiple-choice quizzes with correct answers,
+  explanations and a configurable pass mark.
+- Learners receive scores and feedback, can retry quizzes, and complete an
+  assessment lesson by passing. Attempts are saved with their enrolment.
+- Administrators can review quiz scores and answers from the enrolment list.
+- Course discovery shows result counts, removable filter chips, and controls to
+  clear search, category and difficulty filters.
+- Added local demo course content and expanded Git ignore rules for local files.
+- Full details: [Week 4 changelog](CHANGELOG_WEEK4.md).
+
+## What changed in Week 3
+
+- Home, Explore and Course Details now load data from a JSON store (JSONBin).
+- Forms with validation: Sign In, Registration, Password Recovery, Admin Course.
+- Loading spinners, error messages with Retry, and empty states.
+- Full details: [Week 3 changelog](CHANGELOG_WEEK3.md).

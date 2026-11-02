@@ -1,6 +1,20 @@
 # Miscellaneous
 jsonbin.local.json
 .local/
+/misc/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.jks
+*.keystore
+
+# Local test reports
+/test_output.txt
+/*_test_output.txt
+/*_test_output.json
 *.class
 *.log
 *.pyc
@@ -30,6 +44,7 @@ migrate_working_dir/
 **/ios/Flutter/.last_build_id
 .dart_tool/
 .flutter-plugins-dependencies
+.flutter-plugins
 .pub-cache/
 .pub/
 /build/

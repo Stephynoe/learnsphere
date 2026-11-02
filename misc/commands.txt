@@ -1,5 +1,0 @@
-flutter run --dart-define-from-file=jsonbin.local.json
-
-flutter run -d chrome --profile --dart-define-from-file=jsonbin.local.json
-
-flutter build apk --release --dart-define-from-file=jsonbin.local.json

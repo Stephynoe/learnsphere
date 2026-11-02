@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+
+import '../quiz/quiz.dart';
+import '../quiz/quiz_player.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 import '../admin/admin_courses_repository.dart';
@@ -372,6 +376,32 @@ class _EnrollmentPanelState extends State<EnrollmentPanel> {
                     Text(
                       'Enrolled ${enrollmentDate(e.data['enrolled_at'])} • Completed ${e.progress(data.course(e.courseId)) == 1 ? enrollmentDate(e.data['completed_at']) : '—'}',
                     ),
+                    if (admin &&
+                        (e.data['quiz_attempts'] as List? ?? []).isNotEmpty)
+                      ExpansionTile(
+                        title: const Text('Quiz results'),
+                        children: [
+                          for (final a
+                              in (e.data['quiz_attempts'] as List).reversed)
+                            ExpansionTile(
+                              title: Text(
+                                '${data.course(e.courseId)?.lessons.where((l) => l['id'] == a['lesson_id']).firstOrNull?['title'] ?? 'Assessment'}: ${a['percent']}%',
+                              ),
+                              subtitle: Text(
+                                '${a['passed'] == true ? 'Passed' : 'Not passed'} • ${enrollmentDate(a['submitted_at'])}',
+                              ),
+                              children: [
+                                for (final q in a['feedback'] as List)
+                                  ListTile(
+                                    title: Text('${q['prompt']}'),
+                                    subtitle: Text(
+                                      'Selected: ${q['choices'][q['selected_index']]}\nCorrect: ${q['choices'][q['correct_index']]}',
+                                    ),
+                                  ),
+                              ],
+                            ),
+                        ],
+                      ),
                     if (e.withdrawn)
                       Text(
                         'Withdrawn ${enrollmentDate(e.data['withdrawn_at'])}',
@@ -774,6 +804,7 @@ class LessonScreen extends StatefulWidget {
 }
 
 class _LessonScreenState extends State<LessonScreen> {
+  List<Map<String, dynamic>> attempts = [];
   late Course course = widget.course;
   late int index = widget.course.lessons.indexWhere(
     (l) => l['id'] == widget.initialLessonId,
@@ -818,6 +849,10 @@ class _LessonScreenState extends State<LessonScreen> {
           verified = true;
           completed.clear();
           completed.addAll(e.completed);
+          attempts = [
+            for (final a in e.data['quiz_attempts'] as List? ?? [])
+              Map<String, dynamic>.from(a as Map),
+          ];
         });
       }
     } catch (e) {
@@ -848,6 +883,29 @@ class _LessonScreenState extends State<LessonScreen> {
       if (mounted) await refresh(lessonId: id);
     } catch (e) {
       if (mounted) setState(() => error = enrollmentError(e));
+    } finally {
+      if (mounted) setState(() => busy = false);
+    }
+  }
+
+  Future<bool> submitQuiz(List<int> answers) async {
+    setState(() {
+      busy = true;
+      error = null;
+    });
+    try {
+      await widget.repository.openLesson(
+        widget.actor,
+        widget.enrollmentId,
+        course.lessons[index]['id'] as String,
+        quizAnswers: answers,
+        quizVersion: Quiz.fromLesson(course.lessons[index])?.version,
+      );
+      await refresh();
+      return verified;
+    } catch (e) {
+      if (mounted) setState(() => error = enrollmentError(e));
+      return false;
     } finally {
       if (mounted) setState(() => busy = false);
     }
@@ -895,6 +953,13 @@ class _LessonScreenState extends State<LessonScreen> {
     }
     final lessons = course.lessons;
     final l = lessons[index];
+    Quiz? quiz;
+    String? quizError;
+    try {
+      quiz = Quiz.fromLesson(l);
+    } catch (e) {
+      quizError = enrollmentError(e);
+    }
     return Scaffold(
       appBar: AppBar(title: Text(course.text('title'))),
       body: Center(
@@ -936,17 +1001,29 @@ class _LessonScreenState extends State<LessonScreen> {
               else
                 SelectableText('${l['content']}'),
               const SizedBox(height: 24),
-              FilledButton.icon(
-                onPressed: busy || completed.contains(l['id'])
-                    ? null
-                    : () => save(index, complete: true),
-                icon: const Icon(Icons.check),
-                label: Text(
-                  completed.contains(l['id'])
-                      ? 'Lesson completed'
-                      : 'Mark complete',
+              if (quizError != null) Text(quizError),
+              if (quiz != null)
+                QuizPlayer(
+                  key: ValueKey('${l['id']}-${quiz.data}'),
+                  quiz: quiz,
+                  busy: busy,
+                  attempts: attempts
+                      .where((a) => a['lesson_id'] == l['id'])
+                      .toList(),
+                  onSubmit: submitQuiz,
                 ),
-              ),
+              if (quiz == null && quizError == null)
+                FilledButton.icon(
+                  onPressed: busy || completed.contains(l['id'])
+                      ? null
+                      : () => save(index, complete: true),
+                  icon: const Icon(Icons.check),
+                  label: Text(
+                    completed.contains(l['id'])
+                        ? 'Lesson completed'
+                        : 'Mark complete',
+                  ),
+                ),
               if (lessons.every((l) => completed.contains(l['id'])))
                 const Padding(
                   padding: EdgeInsets.all(16),

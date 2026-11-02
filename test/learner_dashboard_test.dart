@@ -213,6 +213,37 @@ void main() {
       expect(find.text('Welcome back, Updated'), findsOneWidget);
     },
   );
+  testWidgets('clear all resets search text and active filters', (
+    tester,
+  ) async {
+    await open(tester, Catalog());
+    await tester.tap(find.text('Explore'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Filter courses'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byType(DropdownButtonFormField<String>).last);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Advanced').last);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Apply filters'));
+    await tester.pumpAndSettle();
+    expect(find.widgetWithText(InputChip, 'Advanced'), findsOneWidget);
+    await tester.enterText(find.byKey(const ValueKey('search-1')), 'missing');
+    await tester.pumpAndSettle();
+    expect(find.text('0 courses found'), findsOneWidget);
+    await tester.tap(find.text('Clear all'));
+    await tester.pumpAndSettle();
+    expect(find.text('2 courses found'), findsOneWidget);
+    expect(
+      tester
+          .widget<TextFormField>(find.byKey(const ValueKey('search-1')))
+          .controller!
+          .text,
+      isEmpty,
+    );
+    expect(find.text('Clear all'), findsNothing);
+    expect(find.byType(InputChip), findsNothing);
+  });
   testWidgets('loading, initial failure, retry and cached refresh failure', (
     tester,
   ) async {

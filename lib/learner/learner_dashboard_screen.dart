@@ -48,6 +48,21 @@ class _LearnerDashboardScreenState extends State<LearnerDashboardScreen> {
   final queries = ['', ''];
   final categories = ['', ''];
   final difficulties = ['', ''];
+  final searchControllers = [TextEditingController(), TextEditingController()];
+  @override
+  void dispose() {
+    for (final controller in searchControllers) {
+      controller.dispose();
+    }
+    super.dispose();
+  }
+
+  void clearFilters(int index) => setState(() {
+    queries[index] = '';
+    categories[index] = '';
+    difficulties[index] = '';
+    searchControllers[index].clear();
+  });
   @override
   void initState() {
     super.initState();
@@ -329,7 +344,7 @@ class _LearnerDashboardScreenState extends State<LearnerDashboardScreen> {
               Expanded(
                 child: TextFormField(
                   key: ValueKey('search-$index'),
-                  initialValue: queries[index],
+                  controller: searchControllers[index],
                   onChanged: (v) => setState(() => queries[index] = v),
                   decoration: InputDecoration(
                     hintText: 'Search courses, topics, skills...',
@@ -349,6 +364,37 @@ class _LearnerDashboardScreenState extends State<LearnerDashboardScreen> {
               ),
             ],
           ),
+          if (courses != null && !loading && error == null)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  Text(
+                    '${filtered.length} ${filtered.length == 1 ? 'course' : 'courses'} found',
+                  ),
+                  if (categories[index].isNotEmpty)
+                    InputChip(
+                      label: Text(categories[index]),
+                      onDeleted: () => setState(() => categories[index] = ''),
+                    ),
+                  if (difficulties[index].isNotEmpty)
+                    InputChip(
+                      label: Text(difficulties[index]),
+                      onDeleted: () => setState(() => difficulties[index] = ''),
+                    ),
+                  if (queries[index].isNotEmpty ||
+                      categories[index].isNotEmpty ||
+                      difficulties[index].isNotEmpty)
+                    TextButton(
+                      onPressed: () => clearFilters(index),
+                      child: const Text('Clear all'),
+                    ),
+                ],
+              ),
+            ),
           if (widget.warning != null)
             Padding(
               padding: const EdgeInsets.only(top: 12),
@@ -494,11 +540,16 @@ class _LearnerDashboardScreenState extends State<LearnerDashboardScreen> {
               'No published courses yet',
               'Check back soon for new learning opportunities.',
             ),
-          if (courses != null && courses!.isNotEmpty && filtered.isEmpty)
+          if (courses != null && courses!.isNotEmpty && filtered.isEmpty) ...[
             empty(
               'No matching courses',
               'Try another search or clear your category and difficulty filters.',
             ),
+            TextButton(
+              onPressed: () => clearFilters(index),
+              child: const Text('Clear search and filters'),
+            ),
+          ],
           for (final course in filtered)
             Padding(
               padding: const EdgeInsets.only(bottom: 12),

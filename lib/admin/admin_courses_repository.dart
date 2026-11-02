@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import '../quiz/quiz.dart';
+
 import '../auth/sign_in_repository.dart';
 import '../data/jsonbin_store.dart';
 import '../data/user_record.dart';
@@ -67,6 +69,13 @@ class Course {
         errors.add('Every module needs a title and at least one lesson.');
       }
       for (final lesson in module['lessons'] as List) {
+        try {
+          Quiz.fromLesson(Map<String, dynamic>.from(lesson as Map));
+        } catch (_) {
+          errors.add(
+            'Assessment quizzes need valid questions, answers, explanations and a pass mark.',
+          );
+        }
         if ((lesson['title'] as String).trim().isEmpty ||
             (lesson['content'] as String).trim().isEmpty ||
             (int.tryParse('${lesson['minutes']}') ?? 0) <= 0) {
